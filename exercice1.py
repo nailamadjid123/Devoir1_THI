@@ -6,5 +6,8 @@ def quantité_information(probablité):
     if probabilité > 0:
         return -math.log2(probabilité)
     else:
-        return 0 
+        return 0
+
+        
+         
             
