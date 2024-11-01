@@ -69,11 +69,3 @@ def main():
             # Exécuter le programme
 if __name__ == "__main__":
     main()
-
-
-
-
-
-    
-    
-    
