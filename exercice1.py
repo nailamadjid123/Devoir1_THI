@@ -28,19 +28,33 @@ def calcul_entopie(source):
 def main():
 
     source = {} 
+    somme_probabilites = 0.0
 
     n = int(input("Combien d'événements dans la source ? "))  # Demander combien d'événements
 
-    
+    # Collecter les événements et leurs probabilités
+    for i in range(n):
+        evenement = input(f"Nom de l'événement {i + 1}: ")
+
+        # Validation de la probabilité
+        while True:
+            probabilite = float(input(f"Probabilité de {evenement} (entre 0 et 1) : "))
+            if 0 <= probabilite <= 1:
+                break  # Probabilité valide
+            else:
+                print("Erreur: La probabilité doit être comprise entre 0 et 1.")
+
+        source[evenement] = probabilite
+        somme_probabilites += probabilite  # Ajouter à la somme des probabilités
+
+    # Vérification que la somme des probabilités est bien égale à 1
+    if abs(somme_probabilites - 1.0) > 1e-6:  # Tolérance pour éviter les erreurs de précision
+        print("Erreur: La somme des probabilités doit être égale à 1. Veuillez vérifier vos entrées.")
+        return  # Sortir du programme si la somme n'est pas égale à 1
     
       
 
-           # Collecter les événements et leurs probabilités
-    for i in range(n):
-        evenement=input(f"Nom de l'évenemnt {i+1}:")
-        probabilité=float(input(f"probabilité de {evenement} :"))
-        source[evenement]=probabilité
-    
+        
  # Affichage des quantités d'information et calcul de l'entropie
 
     print("\nQuantité d'information pour chaque événement:")
@@ -55,3 +69,11 @@ def main():
             # Exécuter le programme
 if __name__ == "__main__":
     main()
+
+
+
+
+
+    
+    
+    
